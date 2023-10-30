@@ -1,0 +1,8 @@
+.*.swp
+x
+*.o
+qrc_*.cpp
+Makefile
+.qm
+qmake_qmake_qm_files.qrc
+
