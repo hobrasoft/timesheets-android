@@ -67,7 +67,7 @@ Rectangle {
             color: appStyle.textColor;
             }
 
-        Spacer {}
+        Spacer { Layout.fillWidth: true; }
 
         Text {
             Layout.fillWidth: true;
@@ -97,14 +97,16 @@ Rectangle {
             color: appStyle.textColor;
             }
 
+/*
         Text {
             Layout.fillWidth: true;
             // text: qsTr("SSL support") + ": " + (// Version.supportsSsl ? qsTr("Yes") : qsTr("No"));
             font.pixelSize: appStyle.labelSize;
             color: appStyle.textColor;
             }
+*/
 
-        Spacer {}
+        Spacer { Layout.fillWidth: true; }
 
         Text {
             Layout.fillWidth: true;
@@ -134,7 +136,7 @@ Rectangle {
             color: appStyle.textColor;
             }
 
-        Spacer {}
+        Spacer { Layout.fillWidth: true; }
 
         Text {
             Layout.fillWidth: true;

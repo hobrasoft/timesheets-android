@@ -26,6 +26,7 @@ DISTFILES += \
     $$PWD/ItemTimesheetsEdit.qml \
     $$PWD/ItemTimesheets.qml \
     $$PWD/ItemUser.qml \
+    $$PWD/TimesheetsHeader.qml \
     $$PWD/main.qml \
     $$PWD/MButton.qml \
     $$PWD/MInputCheckboxField.qml \
@@ -35,6 +36,7 @@ DISTFILES += \
     $$PWD/MInputTextField.qml \
     $$PWD/MInputText.qml \
     $$PWD/AboutHeader.qml \
+    $$PWD/ReportHeader.qml \
     $$PWD/PageAbout.qml \
     $$PWD/PageCategories.qml \
     $$PWD/PageCategory.qml \
@@ -45,7 +47,6 @@ DISTFILES += \
     $$PWD/PageTicket.qml \
     $$PWD/QuestionDialog.qml \
     $$PWD/Spacer.qml \
-    $$PWD/TimesheetsHeader.qml \
     $$PWD/AppBusyIndicator.qml \
     $$PWD/api.js \
     $$PWD/version.js \

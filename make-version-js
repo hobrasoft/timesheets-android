@@ -1,0 +1,15 @@
+#!/bin/bash
+
+VERSION="1.0.0"
+QTVERSION="5.15.11"
+GIT_COMMIT=$(git --git-dir .git --work-tree . describe --always --tags)
+GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+cat <<! > src/qml/version.js
+var version = "$VERSION";
+var qtVersion = "$QTVERSION";
+var gitBranch = "$GIT_BRANCH";
+var gitCommit = "$GIT_COMMIT";
+!
+
+
