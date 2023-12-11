@@ -23,8 +23,10 @@ Rectangle {
 
     Background{}
 
-    AboutHeader{
+    TimesheetsHeader {
         id: header;
+        saveVisible: false;
+        text: qsTr("About application");
         onCancelClicked: {
             initpage.loadPage("PageCategories.qml");
             }

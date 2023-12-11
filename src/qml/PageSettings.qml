@@ -22,8 +22,9 @@ Rectangle {
 
     Background{}
 
-    SettingsHeader { 
+    TimesheetsHeader { 
         id: header
+        text: qsTr("Settings");
         onSaveClicked: {
             settings.serverName = serverName.text;
             settings.username   = username.text;

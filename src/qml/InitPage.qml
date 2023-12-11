@@ -17,9 +17,6 @@ Item {
     property var    item: null;
     property var    allStatuses: [];
 
-
-    AppSettings { }
-
     ListModel {
         id: statuses;
         Component.onCompleted: {
@@ -78,8 +75,6 @@ Item {
         var instance = component.createObject(initpage, pararams);
         initpage.item = instance;
         }
-
-    AppStyle { id: appStyle; }
 
     Timer {
         id: timer;

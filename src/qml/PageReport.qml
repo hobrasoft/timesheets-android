@@ -24,7 +24,6 @@ Item {
         var api2 = new Api.Api();
         api2.onFinished = function(json) {
             var url = serverUrl+"/public/timesheet.shtml?id=" + json.id;
-            console.log("nova sestava " + url);
             Qt.openUrlExternally(url);
             initpage.loadPage("PageCategories.qml");
             }
@@ -33,9 +32,11 @@ Item {
 
     Background {}
 
-    ReportHeader { 
+    TimesheetsHeader { 
         id: header; 
-        onCreateClicked: {
+        saveText: qsTr("Open");
+        text: qsTr("Create report");
+        onSaveClicked: {
             createReport();
             }
         onCancelClicked: {
@@ -74,47 +75,8 @@ Item {
                     }
                 }
 
-/*
-            CheckBox {
-                id: chbox;
-                anchors.top: t.top;
-                anchors.left: parent.left;
-                anchors.bottom: t.bottom;
-                anchors.margins: 10;
-                width: height;
-                clip: true;
-                partiallyCheckedEnabled: false;
-                onCheckedStateChanged: {
-                    statuses.setProperty (index, "checked", checkedState == Qt.Checked);
-                    }
-                }
-
-            Rectangle {
-                id: circle;
-                anchors.top: t.top;
-                anchors.left: chbox.right;
-                anchors.bottom: t.bottom;
-                anchors.margins: 20;
-                width: height;
-                color: statusColor;
-                radius: height/2;
-                }
-
-            Text {
-                id: t;
-                anchors.top: parent.top;
-                anchors.left: circle.right;
-                anchors.right: parent.right;
-                anchors.leftMargin: 10;
-                text: description;
-                font.pixelSize: appStyle.labelSize;
-                color: appStyle.textColor;
-                height: appStyle.labelSize * 3;
-                verticalAlignment: Text.AlignVCenter;
-                }
-*/
-
             }
+
         }
 }
 

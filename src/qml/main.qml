@@ -12,5 +12,6 @@ Window {
     visible: true;
     InitPage { anchors.fill: parent; }
     AppSettings { id: settings; }
+    AppStyle { id: appStyle; }
 }
 

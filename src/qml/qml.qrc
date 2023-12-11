@@ -30,15 +30,12 @@
         <file>MInputTextArea.qml</file>
         <file>MInputTextField.qml</file>
         <file>MInputText.qml</file>
-        <file>AboutHeader.qml</file>
-        <file>ReportHeader.qml</file>
         <file>PageAbout.qml</file>
         <file>PageCategories.qml</file>
         <file>PageCategory.qml</file>
         <file>PageReport.qml</file>
         <file>PageSettingsError1.qml</file>
         <file>PageSettings.qml</file>
-        <file>SettingsHeader.qml</file>
         <file>AppBusyIndicator.qml</file>
         <file>PageTicket.qml</file>
         <file>QuestionDialog.qml</file>

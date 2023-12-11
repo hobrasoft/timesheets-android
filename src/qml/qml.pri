@@ -35,15 +35,12 @@ DISTFILES += \
     $$PWD/MInputTextArea.qml \
     $$PWD/MInputTextField.qml \
     $$PWD/MInputText.qml \
-    $$PWD/AboutHeader.qml \
-    $$PWD/ReportHeader.qml \
     $$PWD/PageAbout.qml \
     $$PWD/PageCategories.qml \
     $$PWD/PageCategory.qml \
     $$PWD/PageReport.qml \
     $$PWD/PageSettingsError1.qml \
     $$PWD/PageSettings.qml \
-    $$PWD/SettingsHeader.qml \
     $$PWD/PageTicket.qml \
     $$PWD/QuestionDialog.qml \
     $$PWD/Spacer.qml \

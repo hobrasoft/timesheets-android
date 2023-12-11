@@ -120,7 +120,7 @@ Item {
                 MouseArea {
                     anchors.fill: parent;
                     onClicked: {
-                        timesheetsEdit.settings.show_price = initpage.show_price;
+                        timesheetsEdit.show_price = settings.show_price;
                         timesheetsEdit.price = xxxx.price;
                         timesheetsEdit.index = index;
                         timesheetsEdit.ticket = ticket;
