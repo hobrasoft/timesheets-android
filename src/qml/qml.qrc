@@ -22,7 +22,7 @@
         <file>ItemTimesheetsEdit.qml</file>
         <file>ItemTimesheets.qml</file>
         <file>ItemUser.qml</file>
-        <file>main.qml</file>
+        <file>mainandroid.qml</file>
         <file>MButton.qml</file>
         <file>MInputCheckboxField.qml</file>
         <file>MInputCheckbox.qml</file>

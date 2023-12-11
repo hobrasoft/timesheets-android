@@ -3,23 +3,26 @@
  * @author Petr Bravenec <petr.bravenec@hobrasoft.cz>
  */
 import QtQuick 2.7
-import Qt.labs.settings 1.0
 import "api.js" as Api
 
 Item {
     id: initpage;
     anchors.fill: parent;
 
+    property bool   kde: true;
     property int    currentCategory: 0;
     property int    parentCategory: 0;
     property int    userid: -1;
     property int    ticket: 0;
     property var    item: null;
     property var    allStatuses: [];
+    property var    settings: null;
+    property var    appStyle: null;
 
     ListModel {
         id: statuses;
-        Component.onCompleted: {
+        function load() {
+            clear();
             var api = new Api.Api();
             api.onFinished = function(json) {
                 allStatuses = [];
@@ -48,6 +51,10 @@ Item {
                 }
             }
         return "false";
+        }
+
+    function loadStatuses() {
+        statuses.load();
         }
 
     function statusesArray() {
@@ -83,6 +90,24 @@ Item {
         repeat: true;
         }
 
+    Timer {
+        id: initTimer;
+        interval: 10;
+        running: false;
+        repeat: false;
+        onTriggered: {
+            var component = Qt.createComponent(initpage.kde ? "AppSettingsKde.qml" : "AppSettings.qml");
+            initpage.settings = component.createObject(initpage);
+            component = Qt.createComponent(initpage.kde ? "AppStyleKde.qml" : "AppStyle.qml");
+            initpage.appStyle = component.createObject(initpage);
+            if (!initpage.kde && initpage.settings.serverName == '') {
+                loadPage("PageSettings.qml");
+              } else {
+                loadPage("PageCategories.qml");
+                }
+            }
+        }
+
     Component.onCompleted: {
         Number.prototype.pad = function(size) {
             var s = String(this);
@@ -90,8 +115,7 @@ Item {
             return s;
             };
 
-        Number.prototype.formatHHMM = function() {
-            if (isNaN(this)) { return ""; }
+        Number.prototype.formatHHMM = function() { if (isNaN(this)) { return ""; }
             var hh = Math.floor(this/3600);
             var mm = Math.floor((this - hh*3600)/60);
             var ss = Math.floor(this%60);
@@ -178,11 +202,8 @@ Item {
             return  (this) ? "true" : "false";
             }
 
-        if (settings.serverName == '') {
-            loadPage("PageSettings.qml");
-          } else {
-            loadPage("PageCategories.qml");
-            }
+        initTimer.start();
+
         }
 
 }

@@ -342,6 +342,25 @@ Item {
                      : "darkgray";
                 }
 
+            function edit(item) {
+                if (isTicket(item)) {
+                    initpage.loadPage ("PageTicket.qml", { ticket: item.ticket } );
+                    return;
+                    }
+                loadData(item.category, item.parent_category);
+                }
+
+            function stopStart(item) {
+                if (isTicket(item)) {
+                    if (!canBeRun(item)) { return; }
+                    toggleTimesheet(item);
+                    iconColor = isTimesheetRunning(item) ? appStyle.textColor : "darkgray";
+                    return;
+                    }
+                loadData(item.category, item.parent_category);
+                }
+
+
             Rectangle {
                 anchors.fill: parent;
                 radius: parent.radius;
@@ -521,11 +540,7 @@ Item {
                     MouseArea {
                         anchors.fill: parent;
                         onClicked: {
-                            if (isTicket(modelData)) {
-                                initpage.loadPage ("PageTicket.qml", { ticket: modelData.ticket } );
-                                return;
-                                }
-                            loadData(modelData.category, modelData.parent_category);
+                            edit(modelData);
                             }
                         }
                     }
@@ -562,24 +577,16 @@ Item {
                     anchors.right: iconedit.left;
                     anchors.bottom: parent.bottom;
                     anchors.rightMargin: 10;
+
                     onClicked: {
-                        if (isTicket(modelData)) {
-                            if (!canBeRun(modelData)) { return; }
-                            toggleTimesheet(modelData);
-                            iconColor = isTimesheetRunning(modelData) ? appStyle.textColor : "darkgray";
-                            return;
-                            }
-                        loadData(modelData.category, modelData.parent_category);
+                        stopStart(modelData);
                         }
 
                     onPressAndHold: {
-                        if (iconedit.visible) { return; }
-                        if (isTicket(modelData)) {
-                            initpage.loadPage ("PageTicket.qml", { ticket: modelData.ticket } );
-                            return;
-                            }
-                        loadData(modelData.category, modelData.parent_category);
+                        if (!appStyle.android) { return; }
+                        edit(modelData);
                         }
+
                     }
 
                 }
@@ -646,6 +653,7 @@ Item {
         }
 
     Component.onCompleted: {
+        initpage.loadStatuses();
         var api7 = new Api.Api();
         api7.onFinished = function(json) {
             initpage.userid = json.userid;
@@ -653,9 +661,6 @@ Item {
             }
         api7.authenticate(initpage.username, initpage.password);
         }
-
-    AppStyle { id: appStyle; }
-
 
     ApplicationMenu {
         id: appmenu;

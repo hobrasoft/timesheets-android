@@ -10,15 +10,15 @@ import QtQuick 2.2
 
 Item {
     id:     appStyle;
-    anchors.fill: parent;
+    // anchors.fill: parent;
 
-    property real ratio: 700; // width * 1.6;
+    property real ratio: 1000; // width * 1.6;
 
     property real buttonWidth: ratio / 10;
     property real inputHeight: labelSize * 2.5
-    property string textColor: "white";
+    property string textColor: theme.textColor;
     property string textColorDisabled: "#80ffffff";
-    property string backgroundColor: "#303030";
+    property string backgroundColor: "transparent"; // theme.backgroundColor;
 
     property real h1Size: ratio / 22;
     property real h2Size: ratio / 24;
@@ -32,7 +32,7 @@ Item {
     property real smallerSize: ratio / 72;
     property real smalestSize: ratio / 92;
 
-    property bool android: true;
+    property bool android: false;
 
     function image(name) {
         return "qrc:///"+name;

@@ -27,7 +27,7 @@ DISTFILES += \
     $$PWD/ItemTimesheets.qml \
     $$PWD/ItemUser.qml \
     $$PWD/TimesheetsHeader.qml \
-    $$PWD/main.qml \
+    $$PWD/mainandroid.qml \
     $$PWD/MButton.qml \
     $$PWD/MInputCheckboxField.qml \
     $$PWD/MInputCheckbox.qml \
