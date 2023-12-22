@@ -32,8 +32,6 @@ Item {
     property real smallerSize: ratio / 72;
     property real smalestSize: ratio / 92;
 
-    property bool android: false;
-
     function image(name) {
         return "qrc:///"+name;
         }

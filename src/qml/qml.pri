@@ -42,6 +42,10 @@ DISTFILES += \
     $$PWD/PageSettingsError1.qml \
     $$PWD/PageSettings.qml \
     $$PWD/PageTicket.qml \
+    $$PWD/PageUsers.qml \
+    $$PWD/PageUser.qml \
+    $$PWD/PageStatuses.qml \
+    $$PWD/PageStatus.qml \
     $$PWD/QuestionDialog.qml \
     $$PWD/Spacer.qml \
     $$PWD/AppBusyIndicator.qml \

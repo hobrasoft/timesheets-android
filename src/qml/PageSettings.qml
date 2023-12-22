@@ -8,7 +8,7 @@ import QtQuick.Layouts 1.5
 import "api.js" as Api
 
 
-Rectangle {
+Item {
     id: root;
     visible: true;
     anchors.fill: parent;
@@ -112,6 +112,24 @@ Rectangle {
             label: qsTr("User can create/modify/remove categories");
             Layout.fillWidth: true;
             partiallyCheckedEnabled: false;
+            }
+
+        MButton {
+            id: edit_users;
+            text: qsTr("Edit users");
+            Layout.fillWidth: true;
+            onClicked: {
+                initpage.loadPage("PageUsers.qml");
+                }
+            }
+
+        MButton {
+            id: edit_statuses;
+            text: qsTr("Edit statuses");
+            Layout.fillWidth: true;
+            onClicked: {
+                initpage.loadPage("PageStatuses.qml");
+                }
             }
 
         }

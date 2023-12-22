@@ -91,7 +91,7 @@ Rectangle {
                 Layout.fillWidth: true;
                 Layout.preferredHeight: appStyle.labelSize * 2.5;
                 style: AppButtonStyleContextMenu { }
-                enabled: pageCategories.somethingChecked;
+                enabled: (typeof pageCategories != 'undefined' && pageCategories.somethingChecked);
                 onClicked: {
                     root.visible = false;
                     pageCategories.addStatusToSelectedTickets();

@@ -67,15 +67,20 @@ class Api {
         this.ticketsvwall = function () { this.get("ticketsvw", "all=" + initpage.all()); }
         this.ticketvw = function (ticket) { this.get("ticketsvw/"+ticket+"?all=true"); }
         this.saveCategory = function (c) { this.put("categories/", JSON.stringify(c)); }
+        this.status = function (status) { this.get("statuses/" + status); }
         this.statuses = function (category, prevstatus) { this.get("statuses", "category="+category+"&previousStatuses="+JSON.stringify(prevstatus)); }
+        this.statusesAll = function () { this.get("statuses"); }
+        this.saveStatus = function (x) { this.put("statuses/", JSON.stringify(x)); }
+        this.removeStatus = function (x) { this.delete("statuses/" + x); }
         this.users = function (user) { if (typeof user !== 'undefined') { this.get("users/" + user); } else { this.get("users"); } }
+        this.saveUser = function (u) { this.put("users/", JSON.stringify(u)); }
+        this.removeUser = function(u) { this.delete("users/" + u); }
         this.saveTicket = function(t) { this.put("ticketsvw/", JSON.stringify(t)); }
         this.startTimesheet = function(t) { this.get("timesheet/start/" + t); }
         this.stopTimesheet = function(t) { this.get("timesheet/stop/" + t); }
         this.removeTicket = function(t) { this.delete("tickets/" + t); }
         this.removeCategory = function(c) { this.delete("categories/" + c); }
         this.authenticate = function(user, password) { this.get("authenticate"); }
-        this.statusesAll = function () { this.get("statuses"); }
         this.overview = function (category, statuses) { this.get("overview/" + category,  "statuses=" + statuses.join(",")); }
         this.appendStatus = function (c) { c.user = initpage.userid; c.date = new Date(); this.put("ticketstatus/", JSON.stringify(c)); }
         this.serverAbout = function () { this.get("server/about"); }

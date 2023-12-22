@@ -36,6 +36,10 @@
         <file>PageReport.qml</file>
         <file>PageSettingsError1.qml</file>
         <file>PageSettings.qml</file>
+        <file>PageUsers.qml</file>
+        <file>PageUser.qml</file>
+        <file>PageStatuses.qml</file>
+        <file>PageStatus.qml</file>
         <file>AppBusyIndicator.qml</file>
         <file>PageTicket.qml</file>
         <file>QuestionDialog.qml</file>

@@ -20,15 +20,19 @@ Rectangle {
     // Recognized values: settings, list, sync, ticket
     property string saveText: qsTr("Save");
     property string cancelText: qsTr("×");
+    property string addText: qsTr("+");
     property string text: "";
     property alias saveEnabled: buttonSave.enabled;
     property alias cancelEnabled: buttonCancel.enabled;
     property alias deleteEnabled: buttonDelete.enabled;
+    property alias addEnabled: buttonAdd.enabled;
     property alias saveVisible: buttonSave.visible;
     property alias deleteVisible: buttonDelete.visible;
     property alias cancelVisible: buttonCancel.visible;
+    property alias addVisible: buttonAdd.visible;
     property alias spacerVisible: spacer.visible;
 
+    signal addClicked();
     signal saveClicked();
     signal cancelClicked();
     signal deleteClicked();
@@ -64,14 +68,14 @@ Rectangle {
         }
 
     Button {
+        id: buttonDelete;
         enabled: false;
         visible: false;
-        id: buttonDelete;
         anchors.top: parent.top;
         anchors.right: buttonCancel.left;
         anchors.rightMargin: 2;
         height: appStyle.labelSize * 2.5;
-        width: height;
+        width: visible ? height : 0;
         onClicked: {
             if (!enabled) { return; }
             deleteClicked();
@@ -80,6 +84,23 @@ Rectangle {
             iconSource: "trash.svg";
             iconColorDisabled: "#30ffffff";
             iconColorEnabled: "tomato";
+            }
+        }
+
+    Button {
+        id: buttonAdd;
+        enabled: false;
+        visible: false;
+        anchors.top: parent.top;
+        anchors.right: buttonDelete.left;
+        anchors.rightMargin: 2;
+        height: appStyle.labelSize * 2.5;
+        width: visible ? height : 0;
+        text: root.addText;
+        style: AppButtonStyleHeader {}
+        onClicked: {
+            if (!enabled) { return; }
+            addClicked();
             }
         }
 

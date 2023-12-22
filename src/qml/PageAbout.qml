@@ -8,7 +8,7 @@ import QtQuick.Layouts 1.5
 import "api.js" as Api
 import "version.js" as Version
 
-Rectangle {
+Item {
     id: root;
     visible: true;
     anchors.fill: parent;
@@ -59,7 +59,7 @@ Rectangle {
         Text {
             Layout.fillWidth: true;
             text: settings.serverName;
-            font.pixelSize: appStyle.h4size;
+            font.pixelSize: appStyle.h4Size;
             color: appStyle.textColor;
             }
         Text {

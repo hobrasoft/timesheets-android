@@ -528,7 +528,7 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter;
                     anchors.right: checker.left;
                     anchors.rightMargin: width/3;
-                    visible: isTicket(modelData) && !appStyle.android;
+                    visible: isTicket(modelData) && initpage.kde;
 
                     layer.enabled: true;
                     layer.effect: ColorOverlay {
@@ -583,7 +583,7 @@ Item {
                         }
 
                     onPressAndHold: {
-                        if (!appStyle.android) { return; }
+                        if (initpage.kde) { return; }
                         edit(modelData);
                         }
 
