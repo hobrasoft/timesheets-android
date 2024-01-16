@@ -73,7 +73,7 @@ Item {
                 anchors.right: parent.right;
                 anchors.leftMargin: appStyle.h4Size/7;
                 anchors.rightMargin: appStyle.h4Size/7;
-                height: childrenRect.height + appStyle.h4Size;
+                height: iconedit.height + appStyle.h4Size;
 
                 Item {
                     id: leftpart;
