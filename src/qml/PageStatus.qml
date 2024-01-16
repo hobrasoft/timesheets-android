@@ -100,6 +100,7 @@ Item {
             anchors.topMargin: height/7;
             anchors.left: parent.left;
             anchors.right: parent.right;
+            enabled: status == '';
             label: qsTr("Status (primary key)");
             }
 
@@ -159,7 +160,7 @@ Item {
 
             delegate: Rectangle {
                 width: listview.width;
-                height: childrenRect.height + appStyle.h4Size/2;
+                height: checker.height + appStyle.h4Size/2;
                 color: "#10ffffff";
                 radius: 5;
                 clip: true;

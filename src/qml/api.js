@@ -18,7 +18,7 @@ class Api {
                 };
             params = typeof params === 'undefined' ? '' : '&'+params;
             var completeUrl = (settings.useSSL ? "https://" : "http://") + settings.serverName + settings.apiPath + url + "?user=" + settings.username + "&password=" + settings.password + params;
-            console.log(completeUrl);
+            // console.log(completeUrl);
             rq.open("GET", completeUrl, true);
             rq.send();
             }
@@ -26,7 +26,7 @@ class Api {
         this.put = function(url, data) {
             var rq = new XMLHttpRequest();
             var todleto = this;
-            console.log(data);
+            // console.log(data);
             rq.onerror = function() {
                 console.log("error3: " + rq.responseText);
                 todleto.onError(rq.responseText);
