@@ -10,6 +10,8 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
     QGuiApplication app(argc, argv);
+    app.setOrganizationName   ("Hobrasoft s.r.o.");
+    app.setOrganizationDomain ("hobrasoft.cz");
 
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
