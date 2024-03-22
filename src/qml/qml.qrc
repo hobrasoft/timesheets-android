@@ -34,6 +34,7 @@
         <file>PageCategories.qml</file>
         <file>PageCategory.qml</file>
         <file>PageReport.qml</file>
+        <file>PageReportsList.qml</file>
         <file>PageSettingsError1.qml</file>
         <file>PageSettings.qml</file>
         <file>PageUsers.qml</file>

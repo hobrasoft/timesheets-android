@@ -110,6 +110,17 @@ Rectangle {
                 }
 
             Button {
+                text: qsTr("List of reports");
+                Layout.fillWidth: true;
+                Layout.preferredHeight: appStyle.labelSize * 2.5;
+                style: AppButtonStyleContextMenu { }
+                onClicked: {
+                    root.visible = false;
+                    initpage.loadPage("PageReportsList.qml");
+                    }
+                }
+
+            Button {
                 text: qsTr("About");
                 Layout.fillWidth: true;
                 Layout.preferredHeight: appStyle.labelSize * 2.5;

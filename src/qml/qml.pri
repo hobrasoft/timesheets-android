@@ -39,6 +39,7 @@ DISTFILES += \
     $$PWD/PageCategories.qml \
     $$PWD/PageCategory.qml \
     $$PWD/PageReport.qml \
+    $$PWD/PageReportsList.qml \
     $$PWD/PageSettingsError1.qml \
     $$PWD/PageSettings.qml \
     $$PWD/PageTicket.qml \
