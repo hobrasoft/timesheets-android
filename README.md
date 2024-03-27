@@ -18,7 +18,7 @@ You have to have the timesheet-server working. At the first start
 the settings screen is displayed. Use the admin:admin as the
 default login data newly installed server:
 
-[login page](doc/image-001.png)
+![login page](doc/image-001.png)
 
 Although the IP address is used in the example, we recommend
 to set up DNS name and SSL using the Apache reverse proxy.
