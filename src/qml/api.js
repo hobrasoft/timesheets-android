@@ -3,6 +3,13 @@ class Api {
     constructor() {
         this.onFinished = function(data) { }
         this.onError = function(errorText) { console.log("error1: " + errorText); }
+        this.completeUrl = function(url, params) {
+            if (typeof params === 'undefined') {
+                return (settings.useSSL ? "https://" : "http://") + settings.serverName + settings.apiPath + url + "?user=" + settings.username + "&password=" + settings.password;
+              } else {
+                return (settings.useSSL ? "https://" : "http://") + settings.serverName + settings.apiPath + url + "?user=" + settings.username + "&password=" + settings.password + params;
+                }
+            }
 
         this.get = function(url, params) {
             var rq = new XMLHttpRequest();
@@ -12,21 +19,21 @@ class Api {
                 todleto.onError(rq.responseText);
                 };
             rq.onreadystatechange = function() {
-                if (rq.readyState === XMLHttpRequest.DONE && rq.status == 200) {
+                if (rq.readyState === XMLHttpRequest.DONE && (rq.status == 200 || rq.status == 204)) {
                     todleto.onFinished(JSON.parse(rq.responseText));
+                    }
+                if (rq.readyState === XMLHttpRequest.DONE && rq.status == 401) {
+                    todleto.onError('Unauthorized');
                     }
                 };
             params = typeof params === 'undefined' ? '' : '&'+params;
-            var completeUrl = (settings.useSSL ? "https://" : "http://") + settings.serverName + settings.apiPath + url + "?user=" + settings.username + "&password=" + settings.password + params;
-            // console.log(completeUrl);
-            rq.open("GET", completeUrl, true);
+            rq.open("GET", todleto.completeUrl(url,params), true);
             rq.send();
             }
 
         this.put = function(url, data) {
             var rq = new XMLHttpRequest();
             var todleto = this;
-            // console.log(data);
             rq.onerror = function() {
                 console.log("error3: " + rq.responseText);
                 todleto.onError(rq.responseText);
@@ -35,9 +42,11 @@ class Api {
                 if (rq.readyState === XMLHttpRequest.DONE && (rq.status == 200 || rq.status == 204)) {
                     todleto.onFinished(JSON.parse(rq.responseText));
                     }
+                if (rq.readyState === XMLHttpRequest.DONE && rq.status == 401) {
+                    todleto.onError('Unauthorized');
+                    }
                 };
-            var completeUrl = (settings.useSSL ? "https://" : "http://") + settings.serverName + settings.apiPath + url + "?user=" + settings.username + "&password=" + settings.password;
-            rq.open("PUT", completeUrl, true);
+            rq.open("PUT", todleto.completeUrl(url), true);
             rq.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
             rq.send(data);
             }
@@ -53,9 +62,12 @@ class Api {
                 if (rq.readyState === XMLHttpRequest.DONE && (rq.status == 200 || rq.status == 201)) {
                     todleto.onFinished(JSON.parse(rq.responseText));
                     }
+                if (rq.readyState === XMLHttpRequest.DONE && rq.status == 401) {
+                    todleto.onError('Unauthorized');
+                    }
                 };
-            var completeUrl = (settings.useSSL ? "https://" : "http://") + settings.serverName + settings.apiPath + url + "?user=" + settings.username + "&password=" + settings.password;
-            rq.open("DELETE", completeUrl, true);
+            // var completeUrl = (settings.useSSL ? "https://" : "http://") + settings.serverName + settings.apiPath + url + "?user=" + settings.username + "&password=" + settings.password;
+            rq.open("DELETE", todleto.completeUrl(url), true);
             rq.send();
             }
 

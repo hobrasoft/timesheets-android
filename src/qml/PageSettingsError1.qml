@@ -34,18 +34,19 @@ Rectangle {
         Text {
             Layout.fillWidth: true;
             text: qsTr("Please, check your user name and password and repeat the action again.");
+            color: appStyle.textColor;
             font.pixelSize: appStyle.textSize;
             wrapMode: Text.WordWrap;
             }
 
         Button {
             Layout.fillWidth: true;
-            Layout.leftMargin: appStyle.textSize * 5;
+            // Layout.leftMargin: appStyle.textSize * 5;
             style: AppButtonStyle {}
             text: qsTr("Back");
             height: appStyle.textSize * 2.5
             onClicked: {
-                pageLoader.source = "PageSettings.qml";
+                initpage.loadPage("PageSettings.qml");
                 }
             }
 

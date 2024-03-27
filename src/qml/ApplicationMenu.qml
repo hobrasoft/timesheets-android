@@ -41,17 +41,6 @@ Rectangle {
             spacing: 0;
 
             Button {
-                text: qsTr("Settings");
-                Layout.fillWidth: true;
-                Layout.preferredHeight: appStyle.labelSize * 2.5;
-                style: AppButtonStyleContextMenu { }
-                onClicked: {
-                    root.visible = false;
-                    initpage.loadPage("PageSettings.qml");
-                    }
-                }
-
-            Button {
                 text: qsTr("Create new ticket");
                 Layout.fillWidth: true;
                 Layout.preferredHeight: appStyle.labelSize * 2.5;
@@ -117,6 +106,17 @@ Rectangle {
                 onClicked: {
                     root.visible = false;
                     initpage.loadPage("PageReportsList.qml");
+                    }
+                }
+
+            Button {
+                text: qsTr("Settings");
+                Layout.fillWidth: true;
+                Layout.preferredHeight: appStyle.labelSize * 2.5;
+                style: AppButtonStyleContextMenu { }
+                onClicked: {
+                    root.visible = false;
+                    initpage.loadPage("PageSettings.qml");
                     }
                 }
 

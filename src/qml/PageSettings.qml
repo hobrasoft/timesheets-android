@@ -36,14 +36,19 @@ Item {
             settings.can_edit_categories       = can_edit_categories.checkedState;
             var api7 = new Api.Api();
             api7.onFinished = function(json) {
+                console.log("PageSettings.saveClicked().authenticate() = OK");
                 console.log(JSON.stringify(json));
                 initpage.userid = json.userid;
                 settings.show_show_price          = (json.admin || json.show_show_price);
                 settings.show_can_change_category = (json.admin || json.show_can_change_category);
                 settings.show_can_edit_categories = (json.admin || json.show_edit_categories);
                 initpage.loadPage("PageCategories.qml");
-                }
+                };
+            api7.onError = function(txt) {
+                initpage.loadPage("PageSettingsError1.qml");
+                };
             api7.authenticate(initpage.username, initpage.password);
+            console.log("PageSettings.saveClicked()");
             }
         onCancelClicked: {
             initpage.loadPage("PageCategories.qml");

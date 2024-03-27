@@ -149,9 +149,21 @@ Item {
             label: qsTr("Ignored");
             }
 
+        Text {
+            id: lbls;
+            anchors.top: ignored.bottom;
+            anchors.topMargin: height/3;
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+            font.pixelSize: appStyle.labelSize;
+            font.family: "Helvetica";
+            color: appStyle.textColor;
+            text: qsTr("Following statuses");
+            }
+
         ListView {
             id: listview;
-            anchors.top: ignored.bottom;
+            anchors.top: lbls.bottom;
             anchors.topMargin: ignored.height/7;
             anchors.left: parent.left;
             anchors.right: parent.right;
